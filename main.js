@@ -3,7 +3,7 @@
 
 //Zuckerberg cyborg upgrades
 const IMAGES = {	// wheat
-	wheat: 'https://i.imgur.com/dt9cPoa.jpg',
+	wheat: 'https://www.worldofbuzz.com/wp-content/uploads/2015/04/noprofilemale-790x498.gif',
 
 	// sparse wheat
 	sparse_wheat: 'https://i.imgur.com/5J2T7Re.jpg'
