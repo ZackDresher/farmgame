@@ -3,7 +3,7 @@
 
 //Zuckerberg cyborg upgrades
 const IMAGES = {	// wheat
-	wheat: 'https://imgur.com/MENB59i',
+	wheat: 'https://i.imgur.com/MENB59i.png',
 
 	// sparse wheat
 	sparse_wheat: 'https://i.imgur.com/5J2T7Re.jpg'
