@@ -6,7 +6,7 @@ const IMAGES = {	// wheat
 	wheat: 'https://i.imgur.com/MENB59i.png',
 
 	// sparse wheat
-	sparse_wheat: 'https://i.imgur.com/5J2T7Re.jpg'
+	sparse_wheat: 'https://i.imgur.com/MENB59i.png'
 };
 
 const GRID_ROWS = 10;
