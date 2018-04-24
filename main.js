@@ -74,7 +74,7 @@ class Wheat extends Item {
 		STATE.resources.money += STATE.cashPerCrop;
 		if (this.quantity <= 0) {
 			this.destroy();
-			showMessage('You ran out of wheat!');
+			showMessage('Account Farmed !');
 		}
 	}
 }
