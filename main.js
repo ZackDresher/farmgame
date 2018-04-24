@@ -13,7 +13,9 @@ const GRID_ROWS = 10;
 const GRID_COLS = 10;
 const GRID_CELL_SIZE = 80;
 const GRID_EMPTY = [244, 86, 66];
+const ZUCK_IMG = ['0', '1', '2', '3', '4'];
 const ZUCK_STATE = 0;
+const ZUCK_COST = 250;
 
 const RESOURCES = {
 	money: '💰',
@@ -90,9 +92,20 @@ var tractorBonus = new Bonus('Powerful Tractor', {money: 50},
 	})
 
 var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
-	function () {
+	function() {
 		STATE.investment += 0.1;
 	})
+
+var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
+	function() {
+		if(ZUCK_STATE <= 4){
+			ZUCK_STATE++;
+			ZUCK_COST += 250;
+
+		}
+	})
+
+
 
 function init() {
 	var wheat = new Wheat();
