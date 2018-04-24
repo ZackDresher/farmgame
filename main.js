@@ -12,7 +12,7 @@ const IMAGES = {	// wheat
 const GRID_ROWS = 10;
 const GRID_COLS = 10;
 const GRID_CELL_SIZE = 80;
-const GRID_EMPTY = [244, 86, 66];
+const GRID_EMPTY = [211, 221, 237];
 const ZUCK_STATE = 0;
 
 const RESOURCES = {
@@ -76,11 +76,6 @@ class Wheat extends Item {
 		}
 	}
 }
-var menu = new Menu('Farm Mall', [
-	new Button('Buy wheat', tryBuy(Wheat)),
-	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
-	new Button('Open Roth IRA', tryBuy(investmentPortfolio))
-	])
 
 var tractorBonus = new Bonus('Powerful Tractor', {money: 50},
 	function () {
@@ -93,6 +88,13 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 	function () {
 		STATE.investment += 0.1;
 	})
+
+var menu = new Menu('Farm Mall', [
+	new Button('Buy wheat', tryBuy(Wheat)),
+	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
+	new Button('Open Roth IRA', tryBuy(investmentPortfolio))
+	])
+
 
 function init() {
 	var wheat = new Wheat();
