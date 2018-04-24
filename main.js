@@ -101,9 +101,9 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 	})
 
 var menu = new Menu('Info Deals', [
-	new Button('Buy wheat', tryBuy(Wheat)),
-	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
-	new Button('Open Roth IRA', tryBuy(investmentPortfolio))
+	new Button('Buy Account', tryBuy(Wheat)),
+	new Button('Upgrade Servers', tryBuy(tractorBonus)),
+	new Button('Outsource Labor', tryBuy(investmentPortfolio))
 	])
 
 var menu2 = new Menu('UpZucks', [
