@@ -12,12 +12,8 @@ const IMAGES = {	// wheat
 const GRID_ROWS = 10;
 const GRID_COLS = 10;
 const GRID_CELL_SIZE = 80;
-<<<<<<< HEAD
 const GRID_EMPTY = [211, 221, 237];
-=======
-const GRID_EMPTY = [244, 86, 66];
 const ZUCK_IMG = ['0', '1', '2', '3', '4'];
->>>>>>> 2c025c8d9cd95cb5ade97c56ad59b22a5da103a2
 const ZUCK_STATE = 0;
 const ZUCK_COST = 250;
 
@@ -95,7 +91,6 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 		STATE.investment += 0.1;
 	})
 
-<<<<<<< HEAD
 var menu = new Menu('Info Deals', [
 	new Button('Buy wheat', tryBuy(Wheat)),
 	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
@@ -105,7 +100,6 @@ var menu = new Menu('Info Deals', [
 var menu2 = new Menu('UpZucks', [
 	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
 	])
-=======
 var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
 	function() {
 		if(ZUCK_STATE <= 4){
@@ -114,9 +108,6 @@ var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
 
 		}
 	})
-
-
->>>>>>> 2c025c8d9cd95cb5ade97c56ad59b22a5da103a2
 
 function init() {
 	var wheat = new Wheat();
