@@ -91,7 +91,7 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 		STATE.investment += 0.1;
 	})
 
-var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
+var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 	function() {
 		if(ZUCK_STATE <= 4){
 			ZUCK_STATE++;
@@ -101,9 +101,9 @@ var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
 	})
 
 var menu = new Menu('Info Deals', [
-	new Button('Buy wheat', tryBuy(Wheat)),
-	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
-	new Button('Open Roth IRA', tryBuy(investmentPortfolio))
+	new Button('Buy Account', tryBuy(Wheat)),
+	new Button('Upgrade Servers', tryBuy(tractorBonus)),
+	new Button('Outsource Labor', tryBuy(investmentPortfolio))
 	])
 
 var menu2 = new Menu('UpZucks', [
