@@ -89,12 +89,15 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 		STATE.investment += 0.1;
 	})
 
-var menu = new Menu('Farm Mall', [
+var menu = new Menu('Info Deals', [
 	new Button('Buy wheat', tryBuy(Wheat)),
 	new Button('Upgrade Tractor', tryBuy(tractorBonus)),
 	new Button('Open Roth IRA', tryBuy(investmentPortfolio))
 	])
 
+var menu2 = new Menu('UpZucks', [
+	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
+	])
 
 function init() {
 	var wheat = new Wheat();
