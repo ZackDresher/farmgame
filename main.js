@@ -19,13 +19,13 @@ const ZUCK_COST = 250;
 
 const RESOURCES = {
 	money: '💰',
-	trees: '🌳'
+	serverspace: '💽'
 };
 
 const STATE = {
 	resources: {
 		money: 100,
-		trees: 10
+		serverspace: 10
 
 	},
 	cashPerCrop: 10,
@@ -53,7 +53,7 @@ class Wheat extends Item {
 	get cost() {
 		return {
 			money: 20,
-			trees: 1
+			serverspace: 1
 		}
 	}
 
@@ -117,7 +117,7 @@ function init() {
 
 
 
-	defineHarvester('trees', function() {
+	defineHarvester('serverspace', function() {
 		return 1 * STATE.resources.money;
 	}, 2000);
 
@@ -131,7 +131,7 @@ function init() {
 
 	every(function() {
 		STATE.resources.money = 100;
-		STATE.resources.trees =10;
+		STATE.resources.serverspace =10;
 		STATE.cashPerCrop **= 2;
 
 
