@@ -91,7 +91,7 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 		STATE.investment += 0.1;
 	})
 
-var zuckUpgrade = new Bonus('UPZUCK', {money: ZUCK_COST},
+var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 	function() {
 		if(ZUCK_STATE <= 4){
 			ZUCK_STATE++;
