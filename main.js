@@ -17,6 +17,7 @@ const ZUCK_IMG = ['0', '1', '2', '3', '4'];
 const ZUCK_STATE = 0;
 const ZUCK_COST = 250;
 const BACKGROUND_COLOR = [106, 152, 221]
+const QUANT = 1;
 
 const RESOURCES = {
 	money: '💰',
@@ -29,7 +30,7 @@ const STATE = {
 		serverspace: 10
 
 	},
-	cashPerCrop: 10,
+	cashPerCrop: 50,
 	investment: 0,
 	adjArr: ['Big', 'Expensive', 'Productive,', 'Big-ticket',
 			 'Costly', 'Fertile', 'Fruitful', 'Rich', 'Monied', 'Silk-stocking',
@@ -47,7 +48,7 @@ const STATE = {
 
 class Wheat extends Item {
 	init() {
-		this.quantity = 3;
+		this.quantity = QUANT;
 		this.sick = false;
 	}
 
@@ -59,7 +60,7 @@ class Wheat extends Item {
 	}
 
 	get info() { 
-		return `One of your accounts! ${this.quantity}`
+		return `${this.quantity} of your accounts! `
 	
 	}
 
@@ -102,10 +103,16 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 		}
 	})
 
+var accPkg = new Bonus('PACKAGE DEAL', 'Hack their freinds, too!', {money: 1000},
+	function() {
+		QUANT = 5;
+	} )
+
 var menu = new Menu('Info Deals', [
 	new Button('Buy Account', tryBuy(Wheat)),
 	new Button('Upgrade Servers', tryBuy(tractorBonus)),
-	new Button('Outsource Labor', tryBuy(investmentPortfolio))
+	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
+	new Button('Account Hervester Upgreade!', tryBuy(accPkg))
 	])
 
 var menu2 = new Menu('UpZucks', [
