@@ -9,9 +9,10 @@ const IMAGES = {	// wheat
 	sparse_wheat: 'https://i.imgur.com/MENB59i.png'
 };
 
-const GRID_ROWS = 10;
-const GRID_COLS = 10;
-const GRID_CELL_SIZE = 80;
+const GRID_ROWS = 1;
+const GRID_COLS = 1;
+const GRID_CELL_SIZE = 300;
+const GRID_DRAG = false;
 const GRID_EMPTY = [211, 221, 237];
 const ZUCK_IMG = ['0', '1', '2', '3', '4'];
 var ZUCK_STATE = 0;
