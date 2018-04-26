@@ -144,14 +144,6 @@ function init() {
 	defineHarvester('money', function() {
 		return -round(STATE.resources.money * .3)
 	}, 10000);
-
-	every(function() {
-		STATE.resources.money = 100;
-		STATE.resources.serverspace =10;
-		STATE.cashPerCrop *= .00001;
-
-
-	}, 60000);
 }
 
 function main() {
