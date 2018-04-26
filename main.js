@@ -16,6 +16,7 @@ const GRID_EMPTY = [211, 221, 237];
 const ZUCK_IMG = ['0', '1', '2', '3', '4'];
 const ZUCK_STATE = 0;
 const ZUCK_COST = 250;
+const BACKGROUND_COLOR = [106, 152, 221]
 
 const RESOURCES = {
 	money: '💰',
@@ -139,5 +140,5 @@ function init() {
 }
 
 function main() {
-	background(106, 152, 221);
+
 }
