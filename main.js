@@ -144,7 +144,7 @@ function init() {
 	every(function() {
 		STATE.resources.money = 100;
 		STATE.resources.serverspace =10;
-		STATE.cashPerCrop **= 2;
+		STATE.cashPerCrop *= .00001;
 
 
 	}, 60000);
