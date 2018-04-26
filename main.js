@@ -97,9 +97,13 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 	function() {
 		if(ZUCK_STATE <= 4){
+			meter1.update (meter1.val + 25)
 			ZUCK_STATE++;
 			ZUCK_COST += 250;
+			if(ZUCK_STATE == 1){
+				showModal('ZUCKERBORG PHASE 1', '');
 
+			}
 		}
 	})
 
@@ -124,7 +128,7 @@ var meter1;
 function init() {
 	var wheat = new Wheat();
 	GAME.grid.place(wheat, 0, 0);
-	let meter1 = new Meter('Progress', 10)
+	meter1 = new Meter('Progress', 0)
 
 //to update the value of the meter 
 
