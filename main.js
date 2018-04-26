@@ -13,11 +13,13 @@ const GRID_ROWS = 10;
 const GRID_COLS = 10;
 const GRID_CELL_SIZE = 80;
 const GRID_EMPTY = [211, 221, 237];
-const ZUCK_IMG = ['0', '1', '2', '3', '4'];
+const ZUCK_IMG = ['https://i.imgur.com/RBJ9sw7.jpg', 'https://i.imgur.com/2KZmAoG.jpg',
+ 'https://i.imgur.com/UHBwhKk.jpg', 'https://i.imgur.com/lraB72m.jpg', 'https://i.imgur.com/vb1Do7w.jpg'];
 var ZUCK_STATE = 0;
 var ZUCK_COST = 250;
+var START = false;
 const BACKGROUND_COLOR = [106, 152, 221]
-const QUANT = 1;
+var QUANT = 1;
 
 const RESOURCES = {
 	money: '💰',
@@ -100,10 +102,9 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 			meter1.update (meter1.val + 25)
 			ZUCK_STATE++;
 			ZUCK_COST += 250;
-			if(ZUCK_STATE == 1){
-				showModal('ZUCKERBORG PHASE 1', '<img src = "https://i.imgur.com/2KZmAoG.jpg">');
+				showModal(`ZUCKERBORG PHASE ${ZUCK_STATE}`, `<img src = '${ZUCK_IMG[ZUCK_STATE]}'>`);
 
-			}
+			
 		}
 	})
 
