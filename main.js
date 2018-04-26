@@ -112,11 +112,14 @@ var menu2 = new Menu('UpZucks', [
 	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
 	])
 
+var meter1;
 
 function init() {
 	var wheat = new Wheat();
 	GAME.grid.place(wheat, 0, 0);
+	let meter1 = new Meter('Progress', 10)
 
+//to update the value of the meter 
 
 
 	defineHarvester('serverspace', function() {
