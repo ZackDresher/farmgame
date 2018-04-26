@@ -14,8 +14,8 @@ const GRID_COLS = 10;
 const GRID_CELL_SIZE = 80;
 const GRID_EMPTY = [211, 221, 237];
 const ZUCK_IMG = ['0', '1', '2', '3', '4'];
-const ZUCK_STATE = 0;
-const ZUCK_COST = 250;
+var ZUCK_STATE = 0;
+var ZUCK_COST = 250;
 const BACKGROUND_COLOR = [106, 152, 221]
 const QUANT = 1;
 
@@ -101,7 +101,7 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 			ZUCK_STATE++;
 			ZUCK_COST += 250;
 			if(ZUCK_STATE == 1){
-				showModal('ZUCKERBORG PHASE 1', '');
+				showModal('ZUCKERBORG PHASE 1', '<img src = "https://i.imgur.com/2KZmAoG.jpg">');
 
 			}
 		}
