@@ -58,7 +58,11 @@ class Wheat extends Item {
 	}
 
 	get info() {
-		return `One of your accounts ! ${this.quantity}`
+<<<<<<< HEAD
+		return `One of your accounts! ${this.quantity}`
+=======
+		return `Wow, cool account! ${this.quantity}`
+>>>>>>> c5b95674fe995626ba510347cbad599a0dd43a57
 	}
 
 	get image() {
