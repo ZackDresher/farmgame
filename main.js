@@ -133,7 +133,6 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000}
 	} )
 
 var menu = new Menu('Info Deals', [
-	new Button('Buy Account', tryBuy(Wheat)),
 	new Button('Upgrade Servers', tryBuy(tractorBonus)),
 	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
 	new Button('Account Hervester Upgreade!', tryBuy(accPkg))
