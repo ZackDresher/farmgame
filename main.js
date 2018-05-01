@@ -14,6 +14,7 @@ const GRID_COLS = 1;
 const GRID_CELL_SIZE = 300;
 const GRID_DRAG = false;
 const GRID_EMPTY = [211, 221, 237];
+const ZUCK_TEXT = ['There is only one way to build your social media empire these days. Sell strangers\' data! No holding back in this digital revolution. Click your way to fortune!', 'And so your journey begins... hahahaha!', ' Don\'t be afraid to become the ultimate Face-bot, Zuckerberg.', 'You: "How long will it take to become a borg?"', 'You are now the ultimate ZUCKERBORG. Bee bop be dop bop bee!' ];
 const ZUCK_IMG = ['https://i.imgur.com/RBJ9sw7.jpg', 'https://i.imgur.com/2KZmAoG.jpg',
  'https://i.imgur.com/UHBwhKk.jpg', 'https://i.imgur.com/lraB72m.jpg', 'https://i.imgur.com/vb1Do7w.jpg'];
 var ZUCK_STATE = 0;
@@ -83,13 +84,15 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 		if(ZUCK_STATE < 4){
 			meter1.update (meter1.val + 25)
 			ZUCK_STATE++;
+				showModal(`ZUCKERBORG PHASE ${ZUCK_STATE}`, `${ZUCK_TEXT[ZUCK_STATE]}<img src = '${ZUCK_IMG[ZUCK_STATE]}'>`);
+
+			
 			ZUCK_COST *=2;
 			this.cost.money = ZUCK_COST;
-				showModal(`ZUCKERBORG PHASE ${ZUCK_STATE}`, `<img src = '${ZUCK_IMG[ZUCK_STATE]}'>`);
 		}
 	})
 
-var accPkg = new Bonus('PACKAGE DEAL', 'Hack their freinds, too!', {money: 1000},
+var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000},
 	function() {
 		cashPerCrop *= 2;
 	} )
@@ -107,7 +110,10 @@ var menu = new Menu('Info Deals', [
 var meter1;
 
 function init() {
-	meter1 = new Meter('Progress', 0)
+
+	meter1 = new Meter('Progress', 0);
+	showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
+
 
 	let accCell = new Account_Cell();
 	GAME.grid.setCellAt(accCell, 0, 0)
