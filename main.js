@@ -49,6 +49,23 @@ const STATE = {
 
 };
 
+class Account_Cell extends Cell{
+	constructor() {
+		super();
+	}
+
+	get image(){
+		return('wheat');
+	}
+
+	canPlace(item){
+		return false;
+	}
+
+	onClick(){
+		STATE.resources.money += STATE.cashPerCrop;
+	}
+}
 
 class Wheat extends Item {
 	init() {
@@ -129,15 +146,13 @@ var menu2 = new Menu('UpZucks', [
 var meter1;
 
 function init() {
-	var wheat = new Wheat();
-	GAME.grid.place(wheat, 0, 0);
+
 	meter1 = new Meter('Progress', 0);
 	showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
 
 
-
-//to update the value of the meter 
-
+	let accCell = new Account_Cell();
+	GAME.grid.setCellAt(accCell, 0, 0)
 
 	defineHarvester('serverspace', function() {
 		return 1 * STATE.resources.money;
