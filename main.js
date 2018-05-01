@@ -62,43 +62,7 @@ class Account_Cell extends Cell{
 	}
 
 	onClick(){
-		STATE.resources.money += STATE.cashPerCrop;
-	}
-}
-
-class Wheat extends Item {
-	init() {
-		this.quantity = QUANT;
-		this.sick = false;
-	}
-
-	get cost() {
-		return {
-			money: 20,
-			serverspace: 1
-		}
-	}
-
-	get info() { 
-		return `${this.quantity} of your accounts! `
-	
-	}
-
-	get image() {
-		if (this.quantity < 3) {
-			return 'wheat'
-		} else {
-			return 'sparse_wheat'
-		}
-	}
-
-	onClick() {
-		this.quantity -= 1;
-		STATE.resources.money += STATE.cashPerCrop;
-		if (this.quantity <= 0) {
-			this.destroy();
-			showMessage('Account Farmed !');
-		}
+		STATE.resources.money += STATE.cashPerCrop * (ZUCK_STATE + 1);
 	}
 }
 
@@ -116,19 +80,18 @@ var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 
 var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 	function() {
-		if(ZUCK_STATE <= 4){
+		if(ZUCK_STATE < 4){
 			meter1.update (meter1.val + 25)
 			ZUCK_STATE++;
-			ZUCK_COST += 250;
+			ZUCK_COST *=2;
+			this.cost.money = ZUCK_COST;
 				showModal(`ZUCKERBORG PHASE ${ZUCK_STATE}`, `<img src = '${ZUCK_IMG[ZUCK_STATE]}'>`);
-
-			
 		}
 	})
 
 var accPkg = new Bonus('PACKAGE DEAL', 'Hack their freinds, too!', {money: 1000},
 	function() {
-		QUANT = 5;
+		cashPerCrop *= 2;
 	} )
 
 var menu = new Menu('Info Deals', [
@@ -137,7 +100,7 @@ var menu = new Menu('Info Deals', [
 	new Button('Account Hervester Upgreade!', tryBuy(accPkg))
 	])
 
-var menu2 = new Menu('UpZucks', [
+	var menu2 = new Menu('UpZucks', [
 	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
 	])
 
@@ -156,10 +119,6 @@ function init() {
 	defineHarvester('money', function() {
 		return round(STATE.resources.money *  STATE.investment)
 	}, 2000);
-
-	defineHarvester('money', function() {
-		return -round(STATE.resources.money * .3)
-	}, 10000);
 }
 
 function main() {
