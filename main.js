@@ -48,6 +48,23 @@ const STATE = {
 
 };
 
+class Account_Cell extends Cell{
+	constructor() {
+		super();
+	}
+
+	get image(){
+		return('wheat');
+	}
+
+	canPlace(item){
+		return false;
+	}
+
+	onClick(){
+		STATE.resources.money += STATE.cashPerCrop;
+	}
+}
 
 class Wheat extends Item {
 	init() {
@@ -115,7 +132,6 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their freinds, too!', {money: 1000}
 	} )
 
 var menu = new Menu('Info Deals', [
-	new Button('Buy Account', tryBuy(Wheat)),
 	new Button('Upgrade Servers', tryBuy(tractorBonus)),
 	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
 	new Button('Account Hervester Upgreade!', tryBuy(accPkg))
@@ -128,12 +144,10 @@ var menu2 = new Menu('UpZucks', [
 var meter1;
 
 function init() {
-	var wheat = new Wheat();
-	GAME.grid.place(wheat, 0, 0);
 	meter1 = new Meter('Progress', 0)
 
-//to update the value of the meter 
-
+	let accCell = new Account_Cell();
+	GAME.grid.setCellAt(accCell, 0, 0)
 
 	defineHarvester('serverspace', function() {
 		return 1 * STATE.resources.money;
