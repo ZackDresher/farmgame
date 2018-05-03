@@ -93,7 +93,6 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000}
 
 var menu = new Menu('Info Deals', [
 	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
-	new Button('Account Hervester Upgreade!', tryBuy(accPkg))
 	])
 
 	var menu2 = new Menu('UpZucks', [
@@ -106,9 +105,16 @@ function init() {
 
 	meter1 = new Meter('Progress', 0);
 
+
 	showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers'
 	 data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
 
+
+	showModal('ZUCKERBORG: THE GAME, <br> CAMBRIDGE ANA(CLICK)TICA', '', [new Button ('START',
+		function(){
+		showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
+		})]);		
+	
 
 	let accCell = new Account_Cell();
 	GAME.grid.setCellAt(accCell, 0, 0)
