@@ -18,10 +18,10 @@ const ZUCK_TEXT = ['There is only one way to build your social media empire thes
 const ZUCK_IMG = ['https://i.imgur.com/RBJ9sw7.jpg', 'https://i.imgur.com/2KZmAoG.jpg',
  'https://i.imgur.com/UHBwhKk.jpg', 'https://i.imgur.com/lraB72m.jpg', 'https://i.imgur.com/vb1Do7w.jpg'];
 var ZUCK_STATE = 0;
-var ZUCK_COST = 30000;
+var ZUCK_COST = 100;
 var START = false;
 const BACKGROUND_COLOR = [106, 152, 221]
-var QUANT = 1;
+var UP_COST = 1000;
 
 const RESOURCES = {
 	money: '💰',
@@ -67,12 +67,6 @@ class Account_Cell extends Cell{
 	}
 }
 
-var tractorBonus = new Bonus('Powerful Tractor', {money: 50},
-	function () {
-		STATE.cashPerCrop += 5;
-		var bon = new Bonus('bon', {money: 4})
-		menu.addButton(new Button())
-	})
 
 var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
 	function() {
@@ -98,7 +92,6 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000}
 	} )
 
 var menu = new Menu('Info Deals', [
-	new Button('Upgrade Servers', tryBuy(tractorBonus)),
 	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
 	])
 
@@ -116,7 +109,7 @@ function init() {
 		showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. <br> <br> Instructions: Click your way to fortune by clicking on the profile icon. <br> <img src = '${ZUCK_IMG[0]}'>`);
 		})]);		
 	
-	
+
 	let accCell = new Account_Cell();
 	GAME.grid.setCellAt(accCell, 0, 0)
 
