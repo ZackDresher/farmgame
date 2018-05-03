@@ -18,7 +18,7 @@ const ZUCK_TEXT = ['There is only one way to build your social media empire thes
 const ZUCK_IMG = ['https://i.imgur.com/RBJ9sw7.jpg', 'https://i.imgur.com/2KZmAoG.jpg',
  'https://i.imgur.com/UHBwhKk.jpg', 'https://i.imgur.com/lraB72m.jpg', 'https://i.imgur.com/vb1Do7w.jpg'];
 var ZUCK_STATE = 0;
-var ZUCK_COST = 250;
+var ZUCK_COST = 30000;
 var START = false;
 const BACKGROUND_COLOR = [106, 152, 221]
 var QUANT = 1;
