@@ -117,15 +117,9 @@ function newBonus() {
 function init() {
 
 	meter1 = new Meter('Progress', 0);
-
-
-	showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers'
-	 data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
-
-
-	showModal('ZUCKERBORG: THE GAME, <br> CAMBRIDGE ANA(CLICK)TICA', '', [new Button ('START',
+	showModal('<div class = "cooltitle"> ZUCKERBORG <br> THE GAME <br> <br> CAMBRIDGE ANA(CLICK)TICA </div>', '', [new Button ('START',
 		function(){
-		showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. Click your way to fortune!  <img src = '${ZUCK_IMG[0]}'>`);
+		showModal(`ZUCKERBORG PHASE 0 `, `There is only one way to build your social media empire these days. Sell strangers' data! No holding back in this digital revolution. <br> <br> Instructions: Click your way to fortune by clicking on the profile icon. <br> <img src = '${ZUCK_IMG[0]}'>`);
 		})]);		
 	
 
