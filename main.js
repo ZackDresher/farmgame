@@ -36,7 +36,7 @@ const STATE = {
 	},
 	cashPerCrop: 50,
 	investment: 0,
-	adjArr: ['Big', 'Expensive', 'Productive,', 'Big-ticket',
+	adjArr: ['Big', 'Expensive', 'Productive', 'Big-ticket',
 			 'Costly', 'Fertile', 'Fruitful', 'Rich', 'Monied', 'Silk-stocking',
 			 'Luxurious', 'Lavish', 'Deluxe', 'Sumptuous', 'Fast', 'Splendid',
 			 'Grandiose', 'Fancy', 'Futuristic', 'Imposing', 'Swanky', 'Ambitious',
@@ -68,9 +68,10 @@ class Account_Cell extends Cell{
 }
 
 
-var investmentPortfolio = new Bonus('Investment Portfolio', {money: 100},
+var investmentPortfolio = new Bonus(newBonus(), {money: UP_COST},
 	function() {
-		STATE.investment += 0.1;
+		UP_COST *= 2
+		 STATE.cashPerCrop *= 1.5
 	})
 
 var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
@@ -92,14 +93,26 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000}
 	} )
 
 var menu = new Menu('Info Deals', [
-	new Button('Outsource Labor', tryBuy(investmentPortfolio)),
+	new BuyButton(investmentPortfolio.name, (investmentPortfolio), function(){
+		var bongo = new Bonus(newBonus(), {money: UP_COST}, function(){
+		UP_COST *= 2
+		 STATE.cashPerCrop *= 1.5
+		}) 
+		menu.addButton(new BuyButton(bongo.name, bongo))
+	}),
 	])
-
 	var menu2 = new Menu('UpZucks', [
 	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
 	])
 
 var meter1;
+
+function newBonus() {
+	var adj = randomChoice(STATE.adjArr)
+	var noun = randomChoice(STATE.nounArr)
+
+	return (`${adj} ${noun}`)
+}
 
 function init() {
 
