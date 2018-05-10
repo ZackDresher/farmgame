@@ -18,10 +18,11 @@ const ZUCK_TEXT = ['There is only one way to build your social media empire thes
 const ZUCK_IMG = ['https://i.imgur.com/RBJ9sw7.jpg', 'https://i.imgur.com/2KZmAoG.jpg',
  'https://i.imgur.com/UHBwhKk.jpg', 'https://i.imgur.com/lraB72m.jpg', 'https://i.imgur.com/vb1Do7w.jpg'];
 var ZUCK_STATE = 0;
-var ZUCK_COST = 100;
+var ZUCK_COST = 30000;
 var START = false;
 const BACKGROUND_COLOR = [106, 152, 221]
 var UP_COST = 1000;
+RESOURCES_POSITION = [150, 800]
 
 const RESOURCES = {
 	money: '💰',
@@ -68,7 +69,7 @@ class Account_Cell extends Cell{
 }
 
 
-var investmentPortfolio = new Bonus(newBonus(), {money: UP_COST},
+var investmentPortfolio = new Bonus(randName(), 'boing', {money: UP_COST},
 	function() {
 		UP_COST *= 2
 		 STATE.cashPerCrop *= 1.5
@@ -85,6 +86,10 @@ var zuckUpgrade = new Bonus('UPZUCK','UPGRADE ZUCKERBORG', {money: ZUCK_COST},
 			ZUCK_COST *=2;
 			this.cost.money = ZUCK_COST;
 		}
+		else if (ZUCK_STATE == 4){
+			showModal(`CONGRATULATIONS ZUCKERBORG, YOU HAVE ASCENDED AND ENSLAVED ALL OF HUMANITY. YOUR POWER IS UNMATCHED
+				AND NO HUMAN CAN TOUCH YOUR GREATNESS.<img src = 'https://media.giphy.com/media/K2b7e3Le5VuLu/giphy.gif'>`)
+		}
 	})
 
 var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000},
@@ -93,13 +98,7 @@ var accPkg = new Bonus('PACKAGE DEAL', 'Hack their friends, too!', {money: 1000}
 	} )
 
 var menu = new Menu('Info Deals', [
-	new BuyButton(investmentPortfolio.name, (investmentPortfolio), function(){
-		var bongo = new Bonus(newBonus(), {money: UP_COST}, function(){
-		UP_COST *= 2
-		 STATE.cashPerCrop *= 1.5
-		}) 
-		menu.addButton(new BuyButton(bongo.name, bongo))
-	}),
+	new BuyButton(investmentPortfolio.name, (investmentPortfolio), newBonus),
 	])
 	var menu2 = new Menu('UpZucks', [
 	new Button('Upgrade Zuckerberg', tryBuy(zuckUpgrade)),
@@ -108,6 +107,21 @@ var menu = new Menu('Info Deals', [
 var meter1;
 
 function newBonus() {
+	var adj = randomChoice(STATE.adjArr)
+	var noun = randomChoice(STATE.nounArr)
+		var bongo = new Bonus(`${adj} ${noun}`, 'a bonus', {money: UP_COST}, function(){
+		  UP_COST *= 2
+		 STATE.cashPerCrop *= 1.5
+		 this.cost.money = UP_COST
+		}) 
+		menu.addButton(new BuyButton(bongo.name, bongo, newBonus))
+
+	
+}
+
+
+function randName() {
+
 	var adj = randomChoice(STATE.adjArr)
 	var noun = randomChoice(STATE.nounArr)
 
