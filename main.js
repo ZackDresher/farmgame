@@ -26,13 +26,13 @@ RESOURCES_POSITION = [150, 800]
 
 const RESOURCES = {
 	money: '💰',
-	serverspace: '💽'
+	//serverspace: '💽'
 };
 
 const STATE = {
 	resources: {
 		money: 100,
-		serverspace: 10
+		//serverspace: 10
 
 	},
 	cashPerCrop: 50,
@@ -140,9 +140,9 @@ function init() {
 	let accCell = new Account_Cell();
 	GAME.grid.setCellAt(accCell, 0, 0)
 
-	defineHarvester('serverspace', function() {
-		return 1 * STATE.resources.money;
-	}, 2000);
+	//defineHarvester('serverspace', function() {
+	//	return 1 * STATE.resources.money;
+	//}, 2000);
 
 	defineHarvester('money', function() {
 		return round(STATE.resources.money *  STATE.investment)
